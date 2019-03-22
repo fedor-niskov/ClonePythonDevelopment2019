@@ -10,21 +10,32 @@ from tkinter import *
 def dump(*args):
     print("DUMP:",args)
 
+def add_button_label(*args):
+    global column_num
+    b = Button(root, text="B")
+    b.grid(row=0, column=column_num, rowspan=3, sticky=E+W+S+N)
+    column_num += 1
+    l = Label(root, text="L")
+    l.grid(row=0, column=column_num, rowspan=3, sticky=E+W+S+N)
+    column_num += 1
+
 TKroot = Tk()
 TKroot.title("Hello")
 
 root = Frame(TKroot)
 root.place(relx=0, rely=0, relheight=1, relwidth=1)
 
+column_num = 2
+
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=2)
 root.rowconfigure(0, weight=10)
 root.rowconfigure(1, weight=1)
 
-Butt = Button(root, text="Butt ON")
-Butt.bind('<Button-1>', dump)
-Butt.grid(row=0, column=0, sticky=E+W+S+N)
-Exit = Button(root, text="Quit!", command=root.quit)
+Add = Button(root, text="Add")
+Add.bind('<Button-1>', add_button_label)
+Add.grid(row=0, column=0, sticky=E+W+S+N)
+Exit = Button(root, text="Exit", command=root.quit)
 Exit.grid(row=0, column=1, sticky=E+W+S+N)
 Txt = Label(root, text="This is a label", bg="PeachPuff")
 Txt.grid(row=1, column=0, columnspan=2, sticky=E+W+N)

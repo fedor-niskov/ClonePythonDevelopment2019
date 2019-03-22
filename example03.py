@@ -45,7 +45,7 @@ TKroot = Tk()
 TKroot.title("Hello")
 
 root = Frame(TKroot)
-root.place(relx=0, rely=0, relheight=1, relwidth=1)
+root.pack()
 
 column_num = 2
 

@@ -45,7 +45,7 @@ TKroot = Tk()
 TKroot.title("Hello")
 
 root = Frame(TKroot)
-root.pack()
+root.pack(fill=BOTH, expand=1)
 
 column_num = 2
 
@@ -56,9 +56,9 @@ root.rowconfigure(1, weight=1)
 
 Add = Button(root, text="Add")
 Add.bind('<Button-1>', add_button_label)
-Add.grid(row=0, column=0, sticky=E+W+S+N)
+Add.grid(row=0, column=0, sticky=E+W)
 Exit = Button(root, text="Exit", command=root.quit)
-Exit.grid(row=0, column=1, sticky=E+W+S+N)
+Exit.grid(row=0, column=1, sticky=E+W)
 Txt = Label(root, text="This is a label", bg="PeachPuff")
 Txt.grid(row=1, column=0, columnspan=2, sticky=E+W+N)
 
